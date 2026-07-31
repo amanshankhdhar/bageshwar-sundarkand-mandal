@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Mandal Admin</string>
+    <string name="title_activity_main">Mandal Admin</string>
+    <string name="package_name">com.bageshwarbalaji.mandal.admin</string>
+    <string name="custom_url_scheme">com.bageshwarbalaji.mandal.admin</string>
+</resources>

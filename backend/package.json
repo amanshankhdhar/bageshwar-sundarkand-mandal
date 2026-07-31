@@ -1,0 +1,20 @@
+{
+  "name": "bageshwar-mandal-backend",
+  "version": "0.1.0",
+  "description": "Backend API for Bageshwar Bala Ji Sundarkand Mandal — scheduled event cleanup today, foundation for blogs/donation-management/admin-management tomorrow.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "firebase-admin": "^12.1.0"
+  },
+  "license": "MIT"
+}

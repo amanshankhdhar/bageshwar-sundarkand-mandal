@@ -1,0 +1,19 @@
+{
+  "name": "mandal-admin-app",
+  "version": "0.0.3",
+  "description": "Bageshwar Bala Ji Sundarkand Mandal — Admin App (Android, via Capacitor)",
+  "scripts": {
+    "sync": "npx cap sync android",
+    "open:android": "npx cap open android"
+  },
+  "dependencies": {
+    "@capacitor/android": "^6.1.2",
+    "@capacitor/app": "^6.0.1",
+    "@capacitor/core": "^6.1.2"
+  },
+  "devDependencies": {
+    "@capacitor/assets": "^3.0.5",
+    "@capacitor/cli": "^6.1.2"
+  },
+  "license": "MIT"
+}

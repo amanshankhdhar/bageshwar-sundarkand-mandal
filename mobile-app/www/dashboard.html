@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+    <title>Mandal Admin — Dashboard</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="icon" href="assets/logo.webp" type="image/webp" />
+  </head>
+  <body>
+    <!-- Loading Overlay — shown until Firebase confirms admin auth -->
+    <div class="app-loading-overlay" id="app-loading-overlay">
+      <img src="assets/logo.webp" alt="Mandal Logo" class="app-loading-logo" />
+      <div class="app-loading-text">🚩 लोड हो रहा है... 🚩</div>
+      <div class="app-loading-bar-track"><div class="app-loading-bar-fill"></div></div>
+    </div>
+
+    <!-- Admin Header -->
+    <div class="admin-header">
+      <h1>⚙️ Mandal Admin</h1>
+      <button class="btn btn-danger" id="logout-btn" style="width:auto;">🚪 Logout</button>
+    </div>
+
+    <main>
+      <!-- Dashboard Stats -->
+      <div class="admin-stats-grid" style="margin-top:1.5rem;">
+        <div class="admin-stat-card">
+          <div class="a-stat-icon">⏳</div>
+          <div class="a-stat-value" id="stat-pending">—</div>
+          <div class="a-stat-label">Pending Donations</div>
+        </div>
+        <div class="admin-stat-card">
+          <div class="a-stat-icon">💸</div>
+          <div class="a-stat-value" id="stat-total" style="font-size:1.1rem;">—</div>
+          <div class="a-stat-label">Total Verified</div>
+        </div>
+        <div class="admin-stat-card">
+          <div class="a-stat-icon">📅</div>
+          <div class="a-stat-value" id="stat-events-count">—</div>
+          <div class="a-stat-label">Events</div>
+        </div>
+        <div class="admin-stat-card">
+          <div class="a-stat-icon">👥</div>
+          <div class="a-stat-value" id="stat-members-count">—</div>
+          <div class="a-stat-label">Members</div>
+        </div>
+      </div>
+
+      <!-- Admin Tabs -->
+      <div class="admin-tabs">
+        <button class="admin-tab-btn active" data-tab="tab-donations" id="tab-donations-btn">🙏 Donations</button>
+        <button class="admin-tab-btn" data-tab="tab-events" id="tab-events-btn">📅 Events</button>
+        <button class="admin-tab-btn" data-tab="tab-pastlives" id="tab-pastlives-btn">🎬 Past Lives</button>
+        <button class="admin-tab-btn" data-tab="tab-gallery" id="tab-gallery-btn">🖼️ Gallery</button>
+        <button class="admin-tab-btn" data-tab="tab-members" id="tab-members-btn">👥 Members</button>
+        <button class="admin-tab-btn" data-tab="tab-sundarkand" id="tab-sundarkand-btn">📖 Sundarkand</button>
+        <button class="admin-tab-btn" data-tab="tab-settings" id="tab-settings-btn">⚙️ Settings</button>
+      </div>
+
+      <!-- ─── TAB: DONATIONS ─── -->
+      <div class="admin-tab-pane active" id="tab-donations">
+        <div class="admin-table-wrap">
+          <table class="admin-table">
+            <thead>
+              <tr>
+                <th>Date</th><th>Name</th><th>Amount</th>
+                <th>Note</th><th>Mode</th><th>Status</th><th>TransactionId</th><th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="admin-donations-tbody">
+              <tr><td colspan="7" style="text-align:center;">
+                <div class="loading-container"><div class="spinner"></div></div>
+              </td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- ─── TAB: EVENTS ─── -->
+      <div class="admin-tab-pane" id="tab-events">
+        <div class="admin-form-section">
+          <h3>➕ Add New Event</h3>
+          <form id="add-event-form">
+            <div class="grid-2">
+              <div class="form-group">
+                <label>Event Title *</label>
+                <input class="form-control" type="text" id="ev-title" required placeholder="e.g. Grand Sundarkand Path" />
+              </div>
+              <div class="form-group">
+                <label>Date *</label>
+                <input class="form-control" type="date" id="ev-date" required />
+              </div>
+              <div class="form-group">
+                <label>Time *</label>
+                <input class="form-control" type="time" id="ev-time" required />
+              </div>
+              <div class="form-group">
+                <label>
+                  Expiry Date
+                  <span style="font-weight:400; color:var(--text-muted); font-size:0.78rem;">(optional — for multi-day events)</span>
+                </label>
+                <input class="form-control" type="date" id="ev-expiry" />
+                <small style="color:var(--text-muted); display:block; margin-top:4px;">
+                  The event auto-disappears from the public site after this date. Leave blank to use the event Date above.
+                </small>
+              </div>
+              <div class="form-group">
+                <label>Temple / Venue Name</label>
+                <input class="form-control" type="text" id="ev-temple" placeholder="e.g. Shri Hanuman Mandir" />
+              </div>
+              <div class="form-group">
+                <label>Location Text</label>
+                <input class="form-control" type="text" id="ev-location" placeholder="e.g. Nagla Dallu" />
+              </div>
+              <div class="form-group">
+                <label>Google Maps Link</label>
+                <input class="form-control" type="url" id="ev-map" placeholder="https://maps.google.com/..." />
+              </div>
+              <div class="form-group">
+                <label>Organizer</label>
+                <input class="form-control" type="text" id="ev-organizer" placeholder="e.g. Mandal Committee" />
+              </div>
+            </div>
+            <button type="submit" class="btn btn-primary" style="max-width:200px;">➕ Add Event</button>
+          </form>
+        </div>
+        <div id="admin-events-list"><p class="text-muted">Loading...</p></div>
+      </div>
+
+      <!-- ─── TAB: PAST LIVES ─── -->
+      <div class="admin-tab-pane" id="tab-pastlives">
+        <div class="admin-form-section">
+          <h3>➕ Add Past Recording</h3>
+          <form id="add-pastlive-form">
+            <div class="grid-2">
+              <div class="form-group">
+                <label>Title *</label>
+                <input class="form-control" type="text" id="pl-title" required placeholder="e.g. Tuesday Aarti & Path" />
+              </div>
+              <div class="form-group">
+                <label>YouTube Link *</label>
+                <input class="form-control" type="url" id="pl-link" required placeholder="https://youtube.com/watch?v=..." />
+              </div>
+              <div class="form-group">
+                <label>Date *</label>
+                <input class="form-control" type="date" id="pl-date" required />
+              </div>
+            </div>
+            <button type="submit" class="btn btn-primary" style="max-width:200px;">➕ Add Recording</button>
+          </form>
+        </div>
+        <div id="admin-pastlives-list"><p class="text-muted">Loading...</p></div>
+      </div>
+
+      <!-- ─── TAB: GALLERY ─── -->
+      <div class="admin-tab-pane" id="tab-gallery">
+        <div class="admin-form-section">
+          <h3>📤 Upload Image</h3>
+          <form id="add-gallery-form">
+            <div class="form-group">
+              <label>Select Image *</label>
+              <input class="form-control" type="file" id="gallery-file" accept="image/*" required />
+            </div>
+            <div class="form-group">
+              <label>Caption</label>
+              <input class="form-control" type="text" id="gallery-caption" placeholder="e.g. Maha Aarti 2024" />
+            </div>
+            <button type="submit" class="btn btn-primary" style="max-width:200px;">📤 Upload Image</button>
+          </form>
+        </div>
+        <div id="admin-gallery-list"><p class="text-muted">Loading...</p></div>
+      </div>
+
+      <!-- ─── TAB: MEMBERS ─── -->
+      <div class="admin-tab-pane" id="tab-members">
+        <div class="admin-form-section">
+          <h3>➕ Add Member</h3>
+          <form id="add-member-form">
+            <div class="grid-2">
+              <div class="form-group">
+                <label>Full Name *</label>
+                <input class="form-control" type="text" id="member-name" required placeholder="e.g. Pt. Ram Das" />
+              </div>
+              <div class="form-group">
+                <label>Position *</label>
+                <input class="form-control" type="text" id="member-position" required placeholder="e.g. Adhyaksh" />
+              </div>
+              <div class="form-group">
+                <label>Contact Number</label>
+                <input class="form-control" type="text" id="member-contact" placeholder="e.g. +91 99999 99999" />
+              </div>
+              <div class="form-group">
+                <label>Photo</label>
+                <input class="form-control" type="file" id="member-photo" accept="image/*" />
+              </div>
+            </div>
+            <button type="submit" class="btn btn-primary" style="max-width:200px;">➕ Add Member</button>
+          </form>
+        </div>
+        <div id="admin-members-list"><p class="text-muted">Loading...</p></div>
+      </div>
+
+      <!-- ─── TAB: SUNDARKAND TEXT ─── -->
+      <div class="admin-tab-pane" id="tab-sundarkand">
+        <div class="admin-form-section">
+          <h3>➕ Add Verse</h3>
+          <form id="add-verse-form">
+            <div class="form-group">
+              <label>Order Number *</label>
+              <input class="form-control" type="number" id="verse-order" required placeholder="e.g. 1, 2, 3..." />
+            </div>
+            <div class="form-group">
+              <label>Sanskrit / Original Text *</label>
+              <textarea class="form-control" id="verse-sanskrit" rows="4" required
+                        placeholder="Enter Sanskrit or original Sundarkand verse..."></textarea>
+            </div>
+            <div class="form-group">
+              <label>Hindi Meaning *</label>
+              <textarea class="form-control" id="verse-hindi" rows="4" required
+                        placeholder="Enter Hindi meaning / translation..."></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary" style="max-width:200px;">➕ Add Verse</button>
+          </form>
+        </div>
+        <div id="admin-sundarkand-list"><p class="text-muted">Loading...</p></div>
+      </div>
+
+      <!-- ─── TAB: SETTINGS ─── -->
+      <div class="admin-tab-pane" id="tab-settings">
+        <div class="admin-form-section">
+          <h3>⚙️ Website Settings</h3>
+          <form id="save-settings-form">
+            <div class="form-group">
+              <label>📢 Announcement Bar Message</label>
+              <textarea class="form-control" id="settings-announcement" rows="3"
+                        placeholder="e.g. आगामी विशाल सुंदरकांड पाठ 15 मार्च को होगा..."></textarea>
+              <small style="color:var(--text-muted);">This text will scroll in the announcement bar on all pages.</small>
+            </div>
+            <div class="form-group" style="margin-top:1.5rem;">
+              <label>📡 Current Live YouTube Link</label>
+              <input class="form-control" type="url" id="settings-live-link"
+                     placeholder="https://youtube.com/watch?v=LIVE_VIDEO_ID" />
+              <small style="color:var(--text-muted);">Paste the YouTube live stream URL. Leave empty to show "Live will start soon".</small>
+            </div>
+            <button type="submit" class="btn btn-primary" style="max-width:200px;">💾 Save Settings</button>
+          </form>
+        </div>
+      </div>
+
+    </main>
+
+    <!-- ─── GENERIC EDIT MODAL — reused for every section ─── -->
+    <div class="edit-modal-overlay" id="edit-modal-overlay">
+      <div class="edit-modal">
+        <h3 id="edit-modal-title">✏️ Edit Item</h3>
+        <div id="edit-modal-fields"></div>
+        <div class="edit-modal-actions">
+          <button class="btn btn-secondary" onclick="closeEditModal()">Cancel</button>
+          <button class="btn btn-primary" id="edit-modal-save" onclick="saveEditModal()">💾 Save Changes</button>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <div class="footer-mandal-name">Bageshwar Bala Ji Sundarkand Mandal Nagla Dallu</div>
+      <div class="footer-credit">Mandal Admin App &nbsp;•&nbsp; v0.0.3</div>
+    </footer>
+
+    <script type="module" src="js/admin.js"></script>
+  </body>
+</html>

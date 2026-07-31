@@ -1,0 +1,64 @@
+# Builds a debug APK of the Mandal Admin app and attaches it as a
+# downloadable build artifact — no local Android SDK/Gradle setup needed.
+# This is the "when I don't want to work much" option — see guide.md,
+# Phase 3, for the Termux local-build alternative.
+#
+# Runs automatically whenever mobile-app/ changes, and can also be
+# triggered manually anytime from the Actions tab.
+#
+# After a run finishes: GitHub repo → Actions tab → this workflow run →
+# scroll to "Artifacts" → download "mandal-admin-debug-apk" → unzip it →
+# transfer the .apk to your phone → tap to install (allow "install from
+# unknown sources" the first time).
+
+name: Build Android APK
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "mobile-app/**"
+      - ".github/workflows/build-apk.yml"
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: mobile-app
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4
+        with:
+          distribution: "temurin"
+          java-version: "17"
+
+      - name: Install app dependencies
+        run: npm install
+
+      - name: Sync Capacitor → native Android project
+        run: npx cap sync android
+
+      - name: Make gradlew executable
+        run: chmod +x android/gradlew
+
+      - name: Build debug APK
+        working-directory: mobile-app/android
+        run: ./gradlew assembleDebug --no-daemon
+
+      - name: Upload APK artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: mandal-admin-debug-apk
+          path: mobile-app/android/app/build/outputs/apk/debug/app-debug.apk
+          retention-days: 30

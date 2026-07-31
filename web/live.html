@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>लाइव दर्शन | बागेश्वर बाला जी सुंदरकांड मंडल नगला डल्लू</title>
+  <meta name="description" content="बागेश्वर बाला जी सुंदरकांड मंडल का लाइव प्रसारण देखें। आरती, भजन, सुंदरकांड पाठ लाइव। Watch Live Sundarkand Path and Bhajan online from Nagla Dallu." />
+  <meta name="keywords" content="लाइव सुंदरकांड, live sundarkand path, live bhajan, बागेश्वर बाला जी लाइव, Bageshwar Bala Ji live, sundarkand live stream" />
+  <meta name="robots" content="index, follow" />
+  <meta property="og:url" content="https://balajisundarkand.netlify.app/live.html" />
+  <meta property="og:title" content="लाइव दर्शन | बागेश्वर बाला जी सुंदरकांड मंडल" />
+  <meta property="og:image" content="https://balajisundarkand.netlify.app/assets/logo.webp" />
+  <link rel="canonical" href="https://balajisundarkand.netlify.app/live.html" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="icon" href="assets/logo.webp" type="image/webp" />
+</head>
+<body>
+
+  <div class="announcement-bar">
+    <span class="marquee-text" id="marquee-text">🚩 जय श्री राम! बागेश्वर बालाजी सुंदरकांड मंडल, नगला डल्लू में आपका स्वागत है 🚩</span>
+  </div>
+
+  <header>
+    <img src="assets/hanuman-banner.webp" alt="Hanuman Banner" class="header-banner-img" onerror="this.style.display='none'" />
+    <div class="header-top">
+      <div class="header-logo-row">
+        <img src="assets/logo.webp" alt="Mandal Logo" class="header-logo" onerror="this.outerHTML='<span class=\'header-logo-fallback\'>🚩</span>'" />
+        
+        <div class="header-title-block">
+          <div class="header-title">Bageshwar Bala Ji Sundarkand Mandal</div>
+          <div class="header-subtitle">नगला डल्लू — आधिकारिक धार्मिक Web Portal</div>
+        </div>
+      </div>
+      <button class="hamburger-btn" id="hamburger-btn" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+    <nav id="main-nav">
+      <a href="index.html">🏠 Home</a>
+      <a href="upcoming.html">📅 Upcoming</a>
+      <a href="live.html" class="active">🔴 Live</a>
+      <a href="sundarkand.html">📖 Sundarkand</a>
+      <a href="gallery.html">🖼️ Gallery</a>
+      <a href="donation.html">🙏 Donation</a>
+      <a href="about.html">ℹ️ About</a>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Live Stream Section -->
+    <div class="reveal">
+      <h2 class="section-title">🔴 लाइव दर्शन (Live Darshan)</h2>
+      <p style="text-align:center; margin-bottom:1.5rem; color:var(--text-muted); font-family:'Noto Serif Devanagari',serif; line-height:1.8;">
+        सीधा प्रसारण — आरती, भजन एवं सुंदरकांड पाठ का लाइव दर्शन करें 🙏
+      </p>
+    </div>
+
+    <!-- Live Player -->
+    <div id="current-live-container" class="reveal reveal-delay-1">
+      <div class="loading-container">
+        <div class="spinner"></div>
+        <p>लाइव लिंक लोड हो रहा है...</p>
+      </div>
+    </div>
+
+    <!-- Past Recordings -->
+    <div style="margin-top: 2.5rem;" class="reveal">
+      <h2 class="section-title">🎬 पिछले सुंदरकांड पाठ (Past Recordings)</h2>
+      <p style="text-align:center; margin-bottom:1.5rem; color:var(--text-muted); font-family:'Noto Serif Devanagari',serif;">
+        पिछले सभी सुंदरकांड पाठ सत्रों की रिकॉर्डिंग यहाँ देखें।
+      </p>
+      <div id="past-lives-list">
+        <div class="loading-container">
+          <div class="spinner"></div>
+          <p>रिकॉर्डिंग लोड हो रही हैं...</p>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="footer-logo-row"><span class="footer-icon">🚩</span><span class="footer-icon">🛕</span><span class="footer-icon">🚩</span></div>
+    <div class="footer-mandal-name">Bageshwar Bala Ji Sundarkand Mandal Nagla Dallu</div>
+    <div class="footer-legal-links">
+      <a href="privacy-policy.html">Privacy Policy</a>
+      <a href="terms-of-service.html">Terms of Service</a>
+      <a href="disclaimer.html">Disclaimer</a>
+    </div>
+    <hr class="footer-divider" />
+    <p style="font-size:0.8rem; opacity:0.7; font-family:'Noto Serif Devanagari',serif;">© 2026 बागेश्वर बाला जी सुंदरकांड मंडल, नगला डल्लू।</p>
+  </footer>
+
+  <!-- YouTube Float -->
+  <div class="yt-floating-container">
+    <a href="https://www.youtube.com/@BalaJiSundarkand?sub_confirmation=1" target="_blank" rel="noopener" class="yt-btn">
+      <svg viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+    </a>
+    <span class="yt-label">Subscribe Now</span>
+  </div>
+
+  <script type="module" src="js/live.js"></script>
+  <script>
+    const hBtn = document.getElementById('hamburger-btn'), mNav = document.getElementById('main-nav');
+    if (hBtn && mNav) {
+      hBtn.addEventListener('click', function() { this.classList.toggle('open'); mNav.classList.toggle('mobile-open'); });
+      mNav.querySelectorAll('a').forEach(l => l.addEventListener('click', () => { hBtn.classList.remove('open'); mNav.classList.remove('mobile-open'); }));
+    }
+    document.querySelectorAll('.reveal').forEach(el => {
+      new IntersectionObserver(([e]) => { if (e.isIntersecting) e.target.classList.add('visible'); }, { threshold: 0.1 }).observe(el);
+    });
+  </script>
+</body>
+</html>

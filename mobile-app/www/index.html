@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+    <title>Mandal Admin</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="icon" href="assets/logo.webp" type="image/webp" />
+  </head>
+  <body style="background: linear-gradient(135deg, #8b0000, #e67e22); min-height: 100vh;">
+    <!-- Loading Overlay — shown until Firebase resolves the auth state -->
+    <div class="app-loading-overlay" id="app-loading-overlay">
+      <img src="assets/logo.webp" alt="Mandal Logo" class="app-loading-logo" />
+      <div class="app-loading-text">🚩 लोड हो रहा है... 🚩</div>
+      <div class="app-loading-bar-track"><div class="app-loading-bar-fill"></div></div>
+    </div>
+
+    <main style="padding: 2rem 1rem;">
+      <div class="admin-login-wrapper">
+        <div class="admin-login-card">
+          <!-- Login Header -->
+          <div class="admin-login-header">
+            <img src="assets/logo.webp" alt="Mandal Logo" style="width:64px; height:64px; border-radius:50%; margin-bottom:0.6rem; border:2px solid var(--gold);" />
+            <h1>🔐 Admin Login</h1>
+            <p>Bageshwar Bala Ji Sundarkand Mandal</p>
+          </div>
+
+          <form id="login-form">
+            <div class="form-group">
+              <label class="form-label" for="login-email">Admin Email</label>
+              <input
+                class="form-control"
+                type="email"
+                id="login-email"
+                placeholder="admin@mandal.com"
+                required
+                autocomplete="email"
+              />
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="login-password">Password</label>
+              <input
+                class="form-control"
+                type="password"
+                id="login-password"
+                placeholder="Enter password"
+                required
+                autocomplete="current-password"
+              />
+            </div>
+
+            <!-- Error Message -->
+            <div class="alert alert-error" id="login-error" style="display:none;">
+              ❌ Invalid credentials or unauthorized access.
+            </div>
+
+            <button type="submit" class="btn btn-primary" id="login-submit-btn" style="width:100%; justify-content:center;">
+              🔓 Login to Dashboard
+            </button>
+          </form>
+        </div>
+
+        <div style="text-align:center; margin-top:1.5rem;">
+          <span style="color:var(--gold-light); font-size:0.78rem; opacity:0.8;">
+            🚩 Mandal Admin App &nbsp;•&nbsp; v0.0.3 🚩
+          </span>
+        </div>
+      </div>
+    </main>
+
+    <script type="module" src="js/admin.js"></script>
+  </body>
+</html>

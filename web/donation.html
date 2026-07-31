@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- SEO Meta Tags -->
+<title>दान सेवा | बागेश्वर बाला जी सुंदरकांड मंडल नगला डल्लू</title>
+<meta name="description"
+  content="बागेश्वर बाला जी सुंदरकांड मंडल की दान सेवा। Donation service of Bageshwar Bala Ji Sundarkand Mandal Nagla Dallu." />
+<meta name="robots" content="noindex" />
+
+<link rel="canonical" href="https://balajisundarkand.netlify.app/donation.html" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="icon" href="assets/logo.webp" type="image/webp" />
+
+  <!-- SEO -->
+  <meta name="description"
+    content="बागेश्वर बाला जी सुंदरकांड मंडल, नगला डल्लू — दान सेवा अस्थायी रूप से बंद है।" />
+  <meta name="robots" content="noindex" />
+
+  <style>
+
+    /* ─── PAUSE PAGE SPECIFIC STYLES ─── */
+
+    .pause-wrapper {
+      min-height: 70vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem 1rem;
+    }
+
+    .pause-card {
+      background: linear-gradient(145deg, #fff9f0, #ffffff);
+      border: 2px solid #e8c97a;
+      border-radius: 20px;
+      padding: 2.5rem 2rem;
+      max-width: 640px;
+      width: 100%;
+      text-align: center;
+      box-shadow:
+        0 8px 32px rgba(179, 0, 0, 0.08),
+        0 2px 8px rgba(0,0,0,0.06);
+      animation: fadeInUp 0.7s ease forwards;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* decorative top bar */
+    .pause-card::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 5px;
+      background: linear-gradient(90deg, #b30000, #e8a020, #b30000);
+    }
+
+    /* subtle background om symbol */
+    .pause-card::after {
+      content: "🕉";
+      position: absolute;
+      font-size: 12rem;
+      opacity: 0.03;
+      bottom: -2rem;
+      right: -1rem;
+      pointer-events: none;
+      user-select: none;
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Main icon area */
+    .pause-icon-wrap {
+      width: 88px;
+      height: 88px;
+      background: linear-gradient(135deg, #fff3e0, #ffe0b2);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.8rem;
+      margin: 0 auto 1.4rem;
+      border: 3px solid #e8c97a;
+      box-shadow: 0 4px 16px rgba(232, 160, 32, 0.25);
+      animation: gentlePulse 3s ease-in-out infinite;
+    }
+
+    @keyframes gentlePulse {
+      0%, 100% { box-shadow: 0 4px 16px rgba(232, 160, 32, 0.25); }
+      50%       { box-shadow: 0 4px 28px rgba(232, 160, 32, 0.5);  }
+    }
+
+    /* Heading */
+    .pause-heading-hi {
+      font-size: 1.55rem;
+      font-weight: 900;
+      color: #b30000;
+      line-height: 1.35;
+      margin-bottom: 0.3rem;
+    }
+
+    .pause-heading-en {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #7a0000;
+      margin-bottom: 1.6rem;
+      opacity: 0.85;
+    }
+
+    /* Divider */
+    .pause-divider {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      margin: 0 auto 1.6rem;
+      max-width: 420px;
+    }
+
+    .pause-divider::before,
+    .pause-divider::after {
+      content: "";
+      flex: 1;
+      height: 1.5px;
+      background: linear-gradient(90deg, transparent, #e8c97a, transparent);
+    }
+
+    .pause-divider span {
+      font-size: 1.1rem;
+      color: #e8a020;
+      flex-shrink: 0;
+    }
+
+    /* Reason box */
+    .reason-box {
+      background: linear-gradient(135deg, #fff5f5, #fff9f0);
+      border: 1.5px solid #f5c0c0;
+      border-left: 4px solid #b30000;
+      border-radius: 12px;
+      padding: 1.3rem 1.4rem;
+      margin-bottom: 1.4rem;
+      text-align: left;
+    }
+
+    .reason-box .reason-label {
+      font-size: 0.75rem;
+      font-weight: 800;
+      color: #b30000;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      margin-bottom: 0.6rem;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .reason-box p {
+      font-size: 0.97rem;
+      color: #333;
+      line-height: 1.75;
+      margin: 0;
+    }
+
+    .reason-box p + p {
+      margin-top: 0.7rem;
+      padding-top: 0.7rem;
+      border-top: 1px dashed #f5c0c0;
+    }
+
+    /* Dham name highlight */
+    .dham-name {
+      font-weight: 800;
+      color: #b30000;
+      background: rgba(179, 0, 0, 0.06);
+      padding: 1px 5px;
+      border-radius: 4px;
+    }
+
+    /* Status badge */
+    .status-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: #fff3cd;
+      border: 1.5px solid #ffc107;
+      color: #856404;
+      font-weight: 700;
+      font-size: 0.85rem;
+      padding: 6px 16px;
+      border-radius: 50px;
+      margin-bottom: 1.6rem;
+    }
+
+    .status-dot {
+      width: 8px;
+      height: 8px;
+      background: #ffc107;
+      border-radius: 50%;
+      animation: blink 1.5s ease-in-out infinite;
+      flex-shrink: 0;
+    }
+
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50%       { opacity: 0.2; }
+    }
+
+    /* Info strip */
+    .info-strip {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.9rem;
+      margin-bottom: 1.6rem;
+    }
+
+    .info-strip-item {
+      background: #f8f9fa;
+      border: 1px solid #e9ecef;
+      border-radius: 10px;
+      padding: 0.9rem 0.7rem;
+      font-size: 0.85rem;
+      color: #555;
+      line-height: 1.5;
+    }
+
+    .info-strip-item .info-icon {
+      font-size: 1.4rem;
+      display: block;
+      margin-bottom: 0.35rem;
+    }
+
+    .info-strip-item strong {
+      display: block;
+      color: #222;
+      font-size: 0.9rem;
+      margin-bottom: 2px;
+    }
+
+    /* Action buttons */
+    .pause-actions {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      margin-bottom: 1.6rem;
+    }
+
+    .btn-home {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      background: linear-gradient(135deg, #b30000, #d44000);
+      color: white;
+      font-weight: 700;
+      font-size: 1rem;
+      padding: 13px 20px;
+      border-radius: 12px;
+      text-decoration: none;
+      transition: all 0.25s ease;
+      box-shadow: 0 4px 14px rgba(179, 0, 0, 0.3);
+    }
+
+    .btn-home:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(179, 0, 0, 0.4);
+    }
+
+    .btn-wa {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      background: linear-gradient(135deg, #25D366, #128C7E);
+      color: white;
+      font-weight: 700;
+      font-size: 0.95rem;
+      padding: 12px 20px;
+      border-radius: 12px;
+      text-decoration: none;
+      transition: all 0.25s ease;
+      box-shadow: 0 4px 14px rgba(37, 211, 102, 0.3);
+    }
+
+    .btn-wa:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
+    }
+
+    /* Bottom note */
+    .pause-footer-note {
+      font-size: 0.82rem;
+      color: #aaa;
+      line-height: 1.6;
+      border-top: 1px solid #f0e8d8;
+      padding-top: 1.2rem;
+      margin-top: 0.4rem;
+    }
+
+    .pause-footer-note strong {
+      color: #b30000;
+    }
+
+    /* Mobile tweaks */
+    @media (max-width: 480px) {
+      .pause-card { padding: 2rem 1.2rem; }
+      .pause-heading-hi { font-size: 1.3rem; }
+      .info-strip { grid-template-columns: 1fr; }
+      .pause-card::after { font-size: 8rem; }
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- ─── ANNOUNCEMENT BAR ─── -->
+  <div class="announcement-bar">
+    <span class="marquee-text" id="marquee-text">
+      🚩 जय श्री राम! बागेश्वर बालाजी सुंदरकांड मंडल, नगला डल्लू में आपका स्वागत है 🚩
+    </span>
+  </div>
+
+  <!-- ─── HEADER ─── -->
+  <header>
+    <img
+      src="assets/hanuman-banner.webp"
+      alt="Hanuman Banner"
+      class="header-banner-img"
+      onerror="this.style.display='none'"
+    />
+    <div class="header-top">
+      <div class="header-logo-row">
+        <img
+          src="assets/logo.webp"
+          alt="Mandal Logo"
+          class="header-logo"
+          onerror="this.outerHTML='<span class=\'header-logo-fallback\'>🚩</span>'"
+        />
+        <div class="header-title-block">
+          <div class="header-title">Bageshwar Bala Ji Sundarkand Mandal</div>
+          <div class="header-subtitle">नगला डल्लू — आधिकारिक धार्मिक Web Portal</div>
+        </div>
+      </div>
+      <button class="hamburger-btn" id="hamburger-btn" aria-label="Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <nav id="main-nav">
+      <a href="index.html">🏠 Home</a>
+      <a href="upcoming.html">📅 Upcoming</a>
+      <a href="live.html">🔴 Live</a>
+      <a href="sundarkand.html">📖 Sundarkand</a>
+      <a href="gallery.html">🖼️ Gallery</a>
+      <a href="donation.html" class="active">🙏 Donation</a>
+      <a href="about.html">ℹ️ About</a>
+    </nav>
+  </header>
+
+  <!-- ─── MAIN CONTENT ─── -->
+  <main>
+    <div class="pause-wrapper">
+      <div class="pause-card">
+
+        <!-- Icon -->
+        <div class="pause-icon-wrap">🙏</div>
+
+        <!-- Headings -->
+        <div class="pause-heading-hi">दान सेवा अस्थायी रूप से बंद है</div>
+        <div class="pause-heading-en">Donation Service Temporarily Paused</div>
+
+        <!-- Status Badge -->
+        <div class="status-badge">
+          <span class="status-dot"></span>
+          जल्द वापस आएगा • Coming Back Soon
+        </div>
+
+        <!-- Divider -->
+        <div class="pause-divider"><span>🕉️</span></div>
+
+        <!-- Reason Box — Hindi -->
+        <div class="reason-box">
+          <div class="reason-label">
+            📋 कारण (Reason)
+          </div>
+          <p>
+            <span class="dham-name">बागेश्वर धाम सरकार</span> के पीठाधीश्वर
+            परम पूजनीय <span class="dham-name">श्री धीरेन्द्र कृष्ण शास्त्री जी महाराज</span>
+            के स्पष्ट निर्देशानुसार — उनके नाम पर या उनसे संबंधित किसी भी
+            संस्था के नाम पर ऑनलाइन दान संग्रह करना पूर्णतः
+            <strong>प्रतिबंधित</strong> है।
+          </p>
+          <p>
+            हमारा मंडल इस आदेश का पूर्ण सम्मान करता है। इसलिए
+            हमने दान सेवा को अस्थायी रूप से बंद कर दिया है।
+            <strong>बागेश्वर धाम सरकार से अनुमति मिलने के पश्चात्
+            यह सेवा पुनः आरंभ की जाएगी।</strong>
+          </p>
+        </div>
+
+        <!-- Reason Box — English -->
+        <div class="reason-box" style="border-left-color:#1a73e8; border-color:#c0d8f5; background:linear-gradient(135deg,#f0f6ff,#f8fbff);">
+          <div class="reason-label" style="color:#1a73e8;">
+            📋 Reason (English)
+          </div>
+          <p style="color:#333;">
+            As per the strict guidelines of
+            <span class="dham-name" style="color:#1a73e8; background:rgba(26,115,232,0.07);">Bageshwar Dham Sarkar</span>
+            and the instructions of revered
+            <span class="dham-name" style="color:#1a73e8; background:rgba(26,115,232,0.07);">Shri Dhirendra Krishna Shastri Ji Maharaj</span>,
+            collecting online donations in their name or in the name of
+            any associated organization is strictly <strong>prohibited</strong>.
+          </p>
+          <p style="color:#333;">
+            Our Mandal deeply respects this order and has therefore
+            temporarily paused the donation feature.
+            <strong>This service will be restored once we receive
+            official permission from Bageshwar Dham Sarkar.</strong>
+          </p>
+        </div>
+
+        <!-- Info Strip -->
+        <div class="info-strip">
+          <div class="info-strip-item">
+            <span class="info-icon">🛕</span>
+            <strong>मंडल सक्रिय है</strong>
+            हम नियमित सुंदरकांड पाठ जारी रखे हुए हैं।
+          </div>
+          <div class="info-strip-item">
+            <span class="info-icon">🔄</span>
+            <strong>जल्द वापसी</strong>
+            अनुमति मिलते ही दान सेवा पुनः चालू होगी।
+          </div>
+          <div class="info-strip-item">
+            <span class="info-icon">💬</span>
+            <strong>संपर्क करें</strong>
+            किसी भी जानकारी के लिए WhatsApp करें।
+          </div>
+          <div class="info-strip-item">
+            <span class="info-icon">🙏</span>
+            <strong>आपका साथ</strong>
+            आपकी भावना और प्रार्थना ही हमारी शक्ति है।
+          </div>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="pause-actions">
+          <a href="index.html" class="btn-home">
+            🏠 मुख्य पृष्ठ पर जाएं &nbsp;|&nbsp; Go to Home
+          </a>
+          <a href="https://chat.whatsapp.com/KI2jvB22PejKQcpKCHP8Ee"
+             target="_blank" rel="noopener"
+             class="btn-wa">
+            💬 WhatsApp ग्रुप से जुड़ें &nbsp;|&nbsp; Join WhatsApp Group
+          </a>
+        </div>
+
+        <!-- Footer Note -->
+        <div class="pause-footer-note">
+          <strong>🚩 जय श्री राम! जय बजरंगबली!</strong><br />
+          यह निर्णय मंडल की नियमों के प्रति निष्ठा और
+          <strong>बागेश्वर धाम सरकार</strong> के प्रति
+          हमारी अटूट श्रद्धा को दर्शाता है।<br /><br />
+          <em>This decision reflects our Mandal's commitment to
+          rules and our unwavering devotion to Bageshwar Dham Sarkar.</em>
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+  <!-- ─── FOOTER ─── -->
+  <footer>
+    <div class="footer-mandal-name">
+      Bageshwar Bala Ji Sundarkand Mandal Nagla Dallu
+    </div>
+    <div style="
+      display:flex; justify-content:center; align-items:center;
+      gap:20px; flex-wrap:wrap; margin:0.5rem 0;
+    ">
+      <a href="mailto:balajisundarkandnagladallu@gmail.com"
+         style="display:flex; align-items:center; gap:5px;
+                text-decoration:none; color:#f5d28c;
+                font-size:15px; font-weight:bold;">
+        <span style="font-size:20px;">📧</span><span>Email Us</span>
+      </a>
+      <a href="tel:+917983274853"
+         style="display:flex; align-items:center; gap:5px;
+                text-decoration:none; color:#f5d28c;
+                font-size:15px; font-weight:bold;">
+        <span style="font-size:20px;">📞</span><span>Call Us</span>
+      </a>
+      <a href="https://www.youtube.com/@BalaJiSundarkand?sub_confirmation=1"
+         target="_blank" rel="noopener"
+         style="display:flex; align-items:center; gap:5px;
+                text-decoration:none; color:#f5d28c;
+                font-size:15px; font-weight:bold;">
+        <svg viewBox="0 0 120 90" style="width:30px; height:22px;">
+          <rect width="120" height="90" rx="20" fill="red"/>
+          <polygon points="50,30 50,60 80,45" fill="white"/>
+        </svg>
+        <span>YouTube</span>
+      </a>
+      
+    </div>
+    <hr style="border-color:rgba(255,255,255,0.2); margin:0.8rem 0;" />
+    <p style="font-size:0.85rem; opacity:0.8;">
+      || श्री राम जय राम जय जय राम ||
+    </p>
+    <div class="footer-credit">
+      Website Developed By:
+      <strong>👨🏻‍💻 Aman Shankhdhar Ji 🛡️</strong>
+    </div>
+  </footer>
+
+  <!-- ─── ANNOUNCEMENT SCRIPT ─── -->
+  <script type="module">
+    import { db } from "./js/firebase-config.js";
+    import { doc, getDoc }
+      from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
+
+    (async () => {
+      const el = document.getElementById("marquee-text");
+      try {
+        const snap = await getDoc(doc(db, "settings", "announcement"));
+        el.textContent = snap.exists() && snap.data().message
+          ? "🚩 " + snap.data().message + " 🚩"
+          : "🚩 जय श्री राम! सुंदरकांड मंडल 🚩";
+      } catch {
+        el.textContent = "🚩 जय श्री राम! सुंदरकांड मंडल 🚩";
+      }
+    })();
+  </script>
+
+  <!-- ─── HAMBURGER SCRIPT ─── -->
+  <script>
+    const hamburgerBtn = document.getElementById('hamburger-btn');
+    const mainNav      = document.getElementById('main-nav');
+
+    if (hamburgerBtn && mainNav) {
+      hamburgerBtn.addEventListener('click', function () {
+        this.classList.toggle('open');
+        mainNav.classList.toggle('mobile-open');
+      });
+      mainNav.querySelectorAll('a').forEach(function (link) {
+        link.addEventListener('click', function () {
+          hamburgerBtn.classList.remove('open');
+          mainNav.classList.remove('mobile-open');
+        });
+      });
+    }
+  </script>
+
+</body>
+</html>

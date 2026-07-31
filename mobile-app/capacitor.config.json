@@ -1,0 +1,9 @@
+{
+  "appId": "com.bageshwarbalaji.mandal.admin",
+  "appName": "Mandal Admin",
+  "webDir": "www",
+  "backgroundColor": "#8b0000",
+  "server": {
+    "androidScheme": "https"
+  }
+}

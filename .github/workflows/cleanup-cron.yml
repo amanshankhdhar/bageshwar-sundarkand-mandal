@@ -1,0 +1,30 @@
+# Runs once a day and calls the backend's cleanup endpoint, which deletes
+# any events whose date/expiryDate has passed. Free — runs on GitHub's own
+# infrastructure, no third-party account needed.
+#
+# Setup (see guide.md, Phase 2, for full detail):
+#   1. Deploy backend/ to Render, note its URL.
+#   2. Add two repo secrets under Settings → Secrets and variables → Actions:
+#        RENDER_BACKEND_URL   e.g. https://bageshwar-mandal-backend.onrender.com
+#        CRON_SECRET           must exactly match the CRON_SECRET set on Render
+#   3. That's it — this workflow will run automatically every day.
+#
+# You can also trigger it manually any time from the "Actions" tab
+# (workflow_dispatch), e.g. to test it right after setup.
+
+name: Daily Expired Events Cleanup
+
+on:
+  schedule:
+    - cron: "30 20 * * *"   # 20:30 UTC = 2:00 AM IST — low-traffic hours
+  workflow_dispatch:
+
+jobs:
+  cleanup:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Call backend cleanup endpoint
+        run: |
+          curl --fail --silent --show-error \
+            -X GET "${{ secrets.RENDER_BACKEND_URL }}/api/cleanup-expired-events" \
+            -H "x-cron-secret: ${{ secrets.CRON_SECRET }}"

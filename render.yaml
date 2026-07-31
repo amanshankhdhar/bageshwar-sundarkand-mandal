@@ -1,0 +1,18 @@
+# Render Blueprint — lets you deploy the backend with "New +" → "Blueprint"
+# in the Render dashboard, pointed at this repo, instead of configuring
+# every field by hand. See guide.md, Phase 2, for the manual alternative
+# (New + → Web Service) if you'd rather not use a Blueprint.
+
+services:
+  - type: web
+    name: bageshwar-mandal-backend
+    runtime: node
+    rootDir: backend
+    plan: free
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: FIREBASE_SERVICE_ACCOUNT
+        sync: false   # set manually in the Render dashboard — secret, never in git
+      - key: CRON_SECRET
+        sync: false   # set manually in the Render dashboard — secret, never in git
