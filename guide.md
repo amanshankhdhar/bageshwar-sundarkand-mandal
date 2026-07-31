@@ -650,7 +650,7 @@ reference instead of something you'd have to hunt for.
 **1. Firestore Security Rules** (unchanged throughout this entire upgrade —
 reviewed, never modified, per your standing instruction)
 - All writes to `events`, `pastLives`, `members`, `gallery`, `settings`,
-  `sundarkandText` require `request.auth.token.email == "chhwjalcm@gmail.com"`
+  `sundarkandText` require `request.auth.token.email == "admin@web.com"`
 - `donations` allows public **create** only (with validation: `status`
   must be `"pending"`, `amount` a positive number, `name` a string) —
   public users can submit a donation but never read others' write access,
@@ -662,7 +662,7 @@ reviewed, never modified, per your standing instruction)
   set, not on anything client-side
 
 **2. Firebase Authentication**
-- Single admin account (`chhwjalcm@gmail.com`), email/password
+- Single admin account (`admin@web.com`), email/password
 - Authorized domains (Firebase Console → Authentication → Settings)
   includes `localhost` — required for the app, which serves from
   `https://localhost` via Capacitor
